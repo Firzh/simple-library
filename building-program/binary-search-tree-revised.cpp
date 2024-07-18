@@ -44,7 +44,7 @@ private:
     void inorderTraversal(Book* root) {
         if (root != nullptr) {
             inorderTraversal(root->left);
-            cout << "ID: " << root->bookId << ", Title: " << root->title << ", Author: " << root->author << ", Sinopsis: " << root->sinopsis << endl;
+            cout << "ID: " << root->bookId << "\nTitle: " << root->title << "\nAuthor: " << root->author << "\nSinopsis: " << root->sinopsis << "\n\n";
             inorderTraversal(root->right);
         }
     }
@@ -65,7 +65,7 @@ private:
         }
         searchBookByAuthor(root->left, author);
         if (root->author == author) {
-            cout << "Book Found! ID: " << root->bookId << ", Title: " << root->title << ", Author: " << root->author << ", Sinopsis: " << root->sinopsis << endl;
+            cout << "Book Found! \nID: " << root->bookId << "\nTitle: " << root->title << "\nAuthor: " << root->author << "\nSinopsis: " << root->sinopsis << "\n\n";
         }
         searchBookByAuthor(root->right, author);
     }
@@ -77,7 +77,7 @@ private:
         searchBookByGenre(root->left, genre);
         for (int i = 0; i < 10; i++) {
             if (root->genre[i] == genre) {
-                cout << "Book Found! ID: " << root->bookId << ", Title: " << root->title << ", Author: " << root->author << ", Sinopsis: " << root->sinopsis << endl;
+                cout << "Book Found! \nID: " << root->bookId << "\nTitle: " << root->title << "\nAuthor: " << root->author << "\nSinopsis: " << root->sinopsis << "\n\n";
                 break;
             }
         }
@@ -100,7 +100,7 @@ public:
     void findBookByTitle(const string& title) {
         Book* book = searchBookByTitle(root, title);
         if (book != nullptr) {
-            cout << "Book Found! ID: " << book->bookId << ", Title: " << book->title << ", Author: " << book->author << ", Sinopsis: " << book->sinopsis << endl;
+            cout << "Book Found! \nID: " << book->bookId << "\nTitle: " << book->title << "\nAuthor: " << book->author << "\nSinopsis: " << book->sinopsis << "\n\n";
         } else {
             cout << "Book Not Found" << endl;
         }
