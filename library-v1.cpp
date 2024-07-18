@@ -14,12 +14,14 @@ using json = nlohmann::json;
 time_t now = time(0);
 tm *ltm = localtime(&now);
 
-struct book {
+struct Book {
     int bookId;
     string title;
     string author;
     string genre[10];
     string sinopsis;
+    Book* left;
+    Book* right;
 };
 
 struct DateTime {
@@ -159,6 +161,9 @@ void simpanKeJson(const json& data, const string& namaFile) {
     }
 }
 
+//================================================== awal fungsi universal ===============================================
+//                                                  -- Hashing Function
+
 const string PI = "31415926535897932384626433832795028841971693993751058209749445923078164062862089986280348253421170679821480865132823066470938446095505822317253594081284811174502841027019385211055596446229489549308196442881097566593344612847564823378678316527120190914564856692346034861045432664821339360726024914127372458700663155881748815209209628292540919171536436789259036001133053054882046652138414695194151160943305727036575959195309218611738193261179310511854807446237996274956735188575272489122793818301194912983367336244065664308602139494639522473719070217986094370277053921717629317678765195982534904287554687311595628638823537875937519577818577805321712268066130019278766111959092164201989";
 
 unsigned long long hashingFunction(const string& input) {
@@ -177,8 +182,7 @@ bool cekHash(const string& name, const string& pass, const string& uname, const 
     return name == uname && hashingFunction(pass) == hash_pass;
 }
 
-//================================================== awal fungsi universal ===============================================
-//-- Hash_Table & Collision Handling
+//                                           -- Hash Table & Collision Handling
 const int HASH_SIZE = 10;
 Admin* hashTable[HASH_SIZE];
 
