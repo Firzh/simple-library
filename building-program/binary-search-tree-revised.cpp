@@ -8,6 +8,7 @@ struct Book {
     string author;
     string genre[10];
     string sinopsis;
+    bool pinjam;
     Book* left;
     Book* right;
 };
@@ -44,7 +45,7 @@ private:
     void inorderTraversal(Book* root) {
         if (root != nullptr) {
             inorderTraversal(root->left);
-            cout << "ID: " << root->bookId << "\nTitle: " << root->title << "\nAuthor: " << root->author << "\nSinopsis: " << root->sinopsis << "\n\n";
+            cout << "ID: " << root->bookId << "\nTitle: " << root->title << "\nPenulis: " << root->author << "\nSinopsis: " << root->sinopsis << "\n\n";
             inorderTraversal(root->right);
         }
     }
@@ -65,7 +66,7 @@ private:
         }
         searchBookByAuthor(root->left, author);
         if (root->author == author) {
-            cout << "Book Found! \nID: " << root->bookId << "\nTitle: " << root->title << "\nAuthor: " << root->author << "\nSinopsis: " << root->sinopsis << "\n\n";
+            cout << "Book Found! \nID: " << root->bookId << "\nTitle: " << root->title << "\nPenulis: " << root->author << "\nSinopsis: " << root->sinopsis << "\n\n";
         }
         searchBookByAuthor(root->right, author);
     }
@@ -77,7 +78,7 @@ private:
         searchBookByGenre(root->left, genre);
         for (int i = 0; i < 10; i++) {
             if (root->genre[i] == genre) {
-                cout << "Book Found! \nID: " << root->bookId << "\nTitle: " << root->title << "\nAuthor: " << root->author << "\nSinopsis: " << root->sinopsis << "\n\n";
+                cout << "Book Found! \nID: " << root->bookId << "\nTitle: " << root->title << "\nPenulis: " << root->author << "\nSinopsis: " << root->sinopsis << "\n\n";
                 break;
             }
         }
@@ -100,7 +101,7 @@ public:
     void findBookByTitle(const string& title) {
         Book* book = searchBookByTitle(root, title);
         if (book != nullptr) {
-            cout << "Book Found! \nID: " << book->bookId << "\nTitle: " << book->title << "\nAuthor: " << book->author << "\nSinopsis: " << book->sinopsis << "\n\n";
+            cout << "Book Found! \nID: " << book->bookId << "\nTitle: " << book->title << "\nPenulis: " << book->author << "\nSinopsis: " << book->sinopsis << "\n\n";
         } else {
             cout << "Book Not Found" << endl;
         }
@@ -115,6 +116,7 @@ public:
         cout << "Searching books by genre: " << genre << endl;
         searchBookByGenre(root, genre);
     }
+
 };
 
 int main() {
